@@ -24,4 +24,20 @@ RSpec.describe ResourceCategory, type: :model do
         end
     end
 
+    describe "functions" do
+        it "#to_s" do
+            expected_name = 'FAKE'
+            expect(resource_category.to_s).to eq(expected_name)
+        end
+
+        it "#inactive? false" do
+            resource_category.activate
+            expect(resource_category.inactive?).to eq(false)
+        end
+        it "#inactive? true" do
+            resource_category.deactivate
+            expect(resource_category.inactive?).to eq(true)
+        end
+    end
+
 end

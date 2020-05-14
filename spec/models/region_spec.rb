@@ -28,6 +28,13 @@ RSpec.describe Region, type: :model do
       end
     end
 
+    describe "functions" do
+      it "has a string representation that is a name" do
+          expected_name = 'FAKE'
+          expect(region.to_s).to eq(expected_name)
+      end
+  end
+
 
 
 end

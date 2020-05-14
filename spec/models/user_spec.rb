@@ -28,4 +28,12 @@ RSpec.describe User, type: :model do
         end
     end
 
+    describe "functions" do
+        it "has a string representation that is a name" do
+            expected_email = 'fakeemail@gmail.com'
+            expect(user.to_s).to eq(expected_email)
+        end
+    end
+
+
 end
