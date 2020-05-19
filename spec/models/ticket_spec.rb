@@ -2,31 +2,33 @@ require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
 
+	let(:ticket) { Ticket.new }
+	let(:organization) { Organization.new(name: 'FAKE', email: "dataCollection@gmail.com") }
 
   #let(:closed_ticket) { build(:closed_ticket) }
   #let(:open_ticket) { build(:open_ticket) }
 
   describe "attributes" do
-  	specify{expect(tickets).to respond_to(:name)}
-	specify{expect(tickets).to respond_to(:phone)}
-	specify{expect(tickets).to respond_to(:region_id)}
-	specify{expect(tickets).to respond_to(:resource_category_id)}
-	specify{expect(tickets).to respond_to(:description)}
-	specify{expect(tickets).to respond_to(:organization_id)}
-	specify{expect(tickets).to respond_to(:name)}
+  	specify{expect(ticket).to respond_to(:name)}
+		specify{expect(ticket).to respond_to(:phone)}
+		specify{expect(ticket).to respond_to(:region_id)}
+		specify{expect(ticket).to respond_to(:resource_category_id)}
+		specify{expect(ticket).to respond_to(:description)}
+		specify{expect(ticket).to respond_to(:organization_id)}
+		specify{expect(ticket).to respond_to(:name)}
   end
 
 
   describe 'relationships' do
 
 	  it "belongs to region" do
-	  	expect(tickets).to belong_to(:region)
+	  	expect(ticket).to belong_to(:region)
 	  end
 	  it "belongs to resource category" do
-	  	expect(tickets).to belong_to(:resource_category)
+	  	expect(ticket).to belong_to(:resource_category)
 	  end
 	  it "belongs to organization" do
-	  	expect(tickets).to belong_to(:organization)
+	  	expect(ticket).to belong_to(:organization)
 	  end
   end
 
@@ -38,7 +40,7 @@ RSpec.describe Ticket, type: :model do
   		expect(ticket).to validate_length_of(:name).is_at_least(1).is_at_most(255).on(:create)
   	end
   	it "validates length of description" do
-  		expect(user).to validate_length_of(:description).is_at_most(1020).on(:create)
+  		expect(ticket).to validate_length_of(:description).is_at_most(1020).on(:create)
   	end
 		#it "validates phone number" do
 			#expect(ticket).to validate(:phone).phony_plausible(true)
@@ -46,11 +48,11 @@ RSpec.describe Ticket, type: :model do
 	end
 
 	describe "#open" do
-	  it "is ticket open" do
-			open_tickets = ticket.open
+	  it "is open ticket" do
+			open_tickets = ticket.open?
 			expect(ticket.open?).to eq(true)
 	  end
-	  it "is ticket closed" do
+	  it "is closed ticket" do
 		  ticket.closed = true
 		  expect(ticket.open?).to eq(false)
 	  end
@@ -69,7 +71,7 @@ RSpec.describe Ticket, type: :model do
   describe "#to_s" do
    	it "has a string representation that is a ticket id" do
 		ticket.id = 123
-		expect(ticket.to_s).to eq("ticket 123")
+		expect(ticket.to_s).to eq("Ticket 123")
 		end
   end
 
