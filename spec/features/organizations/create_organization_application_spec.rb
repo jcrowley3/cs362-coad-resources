@@ -2,17 +2,18 @@ require 'rails_helper'
 
 RSpec.describe 'Creating an Organization Application', type: :feature do
 
+    let(:user) { create(:user) }
+    
+    before :each do
+        log_in_as(user)
+    end
+
     context "organization application" do
-
+        
         it "fills organization application form" do
-            create(:user)
-            visit '/login'
-            fill_in 'Email address', with: 'faker@fake.com'
-            fill_in 'Password', with: 'password'
-            click_on 'Sign in'
-
-
-            visit '/new_organization_application'
+            #log_in_as(user)
+            create(:user, :admin)
+            visit new_organization_application_path
             choose "organization_liability_insurance_true"
             choose "organization_agreement_one_true"
             choose "organization_agreement_two_true"
@@ -32,7 +33,7 @@ RSpec.describe 'Creating an Organization Application', type: :feature do
             fill_in 'organization_description', with: 'fake application desc'
             choose "organization_transportation_yes"
             click_on "Apply"
-            save_and_open_page
+            expect(page).to have_content("Application Submitted")
         end
     end
 
