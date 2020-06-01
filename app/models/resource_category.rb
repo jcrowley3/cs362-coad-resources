@@ -1,5 +1,5 @@
 class ResourceCategory < ApplicationRecord
-
+ # Used for creating avaialable resources. And checking if they are active or not and then the updating if needed. 
   has_and_belongs_to_many :organizations
   has_many :tickets
 

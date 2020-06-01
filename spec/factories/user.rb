@@ -11,5 +11,9 @@ FactoryBot.define do
         after :create do |user|
             user.confirm
         end
+
+        trait :organization do
+            role { :organization }
+        end
     end
 end

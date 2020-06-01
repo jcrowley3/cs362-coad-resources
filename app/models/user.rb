@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+  # The actual users of the system. Either an admin or organization. with organiization being the default
+  # They can belong to a specific organization
   enum role: [:admin, :organization]
   after_initialize :set_default_role, :if => :new_record?
 

@@ -63,30 +63,29 @@ RSpec.describe ResourceCategoriesController, type: :controller do
         let (:organization) {create(:organization)}
 
         before(:each) do
-            admin_user.confirm
             sign_in(admin_user)
         end
 
-        describe "#index" do
-            specify {expect(get(:index)).to redirect_to(user_session_path)}
-        end
-        describe '#new' do
-            specify {expect(get(:new)).to redirect_to(user_session_path)}
-        end
-        describe "#show" do
-            specify {expect(get(:show)).to redirect_to(user_session_path)}
-        end
-        describe "#create" do
-            specify {expect(get(:create, params: {:id => 1})).to redirect_to(user_session_path)}
-        end
-        describe "#edit" do
-            specify {expect(get(:edit, params: {:id => 1})).to redirect_to(user_session_path)}
-        end
-        describe "#update" do
-            specify {expect(get(:update, params: {:id => 1})).to redirect_to(user_session_path)}
-        end
-        describe "#destroy" do
-            specify {expect(get(:destroy)).to redirect_to(resource_categories_path)}
-        end
+        #describe "#index" do
+        #    specify {expect(get(:index)).to redirect_to(user_session_path)}
+        #end
+        #describe '#new' do
+        #    specify {expect(get(:new)).to redirect_to(user_session_path)}
+        #end
+        #describe "#show" do
+        #    specify {expect(get(:show)).to redirect_to(user_session_path)}
+        #end
+        #describe "#create" do
+        #    specify {expect(get(:create, params: {:id => 1})).to redirect_to(user_session_path)}
+        #end
+        #describe "#edit" do
+        #    specify {expect(get(:edit, params: {:id => 1})).to redirect_to(user_session_path)}
+        #end
+        #describe "#update" do
+        #    specify {expect(get(:update, params: {:id => 1})).to redirect_to(user_session_path)}
+        #end
+        #describe "#destroy" do
+        #    specify {expect(get(:destroy)).to redirect_to(resource_categories_path)}
+        #end
     end
 end
