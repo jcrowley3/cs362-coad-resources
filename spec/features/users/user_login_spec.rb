@@ -5,7 +5,7 @@ RSpec.describe 'Logging in', type: :feature do
 
 	it 'login: done from Home screen and redirects user to the dashboard' do
 		visit root_path
-		click_on("Log in") #needs to match the wording on the website page
+		click_on("Log in")
 		fill_in "Email", with: user.email
 		fill_in "Password", with: user.password
 		find_by_id('commit').click

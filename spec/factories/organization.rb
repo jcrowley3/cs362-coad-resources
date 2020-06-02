@@ -6,7 +6,7 @@ FactoryBot.define do
         description {'test organization'}
         primary_name {"Fake"}
         secondary_name {"Fake"}
-        secondary_phone {'000-000-0000'}
+        secondary_phone {'000-000-0001'}
         title {'title'}
         transportation {:yes}
         liability_insurance{:yes}
