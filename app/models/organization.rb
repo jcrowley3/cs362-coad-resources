@@ -1,5 +1,8 @@
 class Organization < ApplicationRecord
-
+  # An organization
+  # describes on of the different user types
+  # can approve, reject, submit, or lock them
+  # has its own constraints about what the email, password, name, etc.
   attr_accessor :agreement_one, :agreement_two, :agreement_three, :agreement_four, :agreement_five, :agreement_six, :agreement_seven, :agreement_eight
 
   enum status: [:approved, :submitted, :rejected, :locked]

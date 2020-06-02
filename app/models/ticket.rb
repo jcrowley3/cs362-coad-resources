@@ -1,5 +1,7 @@
 class Ticket < ApplicationRecord
-
+ # Ticket to flag the problem that needs to be solves. 
+ # Able to open and close tickets based on the status of the problem. 
+ # ties them to a region, resource_category, and organization.
   belongs_to :region
   belongs_to :resource_category
   belongs_to :organization, optional: true

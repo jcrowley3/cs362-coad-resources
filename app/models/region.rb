@@ -1,5 +1,6 @@
 class Region < ApplicationRecord
-
+  # a class that represents different regions that could need to use the COAD resources.
+  # ex: bend, redmond, portland, etc.
   has_many :tickets
 
   validates_presence_of :name

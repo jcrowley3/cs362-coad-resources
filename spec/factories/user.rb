@@ -1,22 +1,16 @@
 FactoryBot.define do
+    factory :user do
+        sequence(:email) { |n| "fake#{n}@fake.com"}
+        password {"password123"}
+        password_confirmation {"password123"}
 
-  factory :user do
-    email
-    pasword {"fake password"}
-    trait :admin do
-      role { 'admin' }
+        trait :admin do
+            role { :admin }
+        end
+
+        after :create do |user|
+            user.confirm
+        end
+
     end
-
-/*    trait :organization_approved do
-      role { 'organization' }
-      organization
-    end
-*/
-
-    after(:create) do |user|
-      user.confirm
-    end
-
-  end
-
 end
