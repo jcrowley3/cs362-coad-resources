@@ -12,7 +12,6 @@ RSpec.describe 'Approving an organization', type: :feature do
     context 'Approve organization application' do
         it 'is approved' do
             visit organization_path(organization)
-            #click_on "Fake Organization"
             click_on 'Approve'
             expect(page).to have_content('has been approved')
         end
