@@ -30,6 +30,5 @@ RSpec.describe 'Logging in', type: :feature do
 		find_by_id('commit').click
 		expect(page).to have_content("Invalid Email or password")
 		expect(current_path).to eq('/users/sign_in')
-
 	end
 end
