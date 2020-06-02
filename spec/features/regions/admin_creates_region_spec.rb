@@ -14,6 +14,7 @@ RSpec.describe 'Creating a Region', type: :feature do
             fill_in "Name", with: "New Region Test"
             click_on "Add Region"
             expect(page).to have_content("Region successfully created")
+            expect(current_path).to eq("/regions")
         end
 
         it 'already exists' do
@@ -22,6 +23,7 @@ RSpec.describe 'Creating a Region', type: :feature do
             fill_in "Name", with: "Fake test"
             click_on "Add Region"
             expect(page).to have_content("Name has already been taken")
+            expect(current_path).to eq("/regions")
             
         end
 
@@ -29,6 +31,7 @@ RSpec.describe 'Creating a Region', type: :feature do
             visit new_region_path
             click_on "Add Region"
             expect(page).to have_content("Name can't be blank")
+            expect(current_path).to eq("/regions")
         end
     end
 end

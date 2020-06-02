@@ -14,6 +14,7 @@ RSpec.describe 'Deleting a Region', type: :feature do
             visit region_path(region)
             click_on "Delete"   
             expect(page).to have_content("Associated tickets now belong to the 'Unspecified' region")
+            expect(current_path).to eq("/regions")
         end
     end
 end
